@@ -163,7 +163,7 @@ action:
       action_step: "{{ trigger.payload_json.action_step_size | int(0) }}"
       player_id: !input target_media_player
       volume: "{{ state_attr(player_id, 'volume_level') }}"
-      step: "{{ trigger.payload_json.action_step_size / 423.0 }}"
+      step: "{{ (trigger.payload_json.action_step_size | float(0)) / 423.0 }}"
 
   - choose:
       # -------------------------------------------------------
