@@ -197,6 +197,12 @@ action:
           - service: counter.reset
             target:
               entity_id: "{{ counter_var }}"
+          # Reset last_pressed so dial defaults back to volume control
+          - service: input_text.set_value
+            data:
+              value: ""
+            target:
+              entity_id: "{{ input_text_var }}"
 
       # -------------------------------------------------------
       # Handle DOUBLE PRESS
